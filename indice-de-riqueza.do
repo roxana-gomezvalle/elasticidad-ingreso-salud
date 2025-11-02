@@ -27,15 +27,7 @@ codebook s7dcod
 *Contando los equipos del hogar
 by i00 , sort: gen num = s7dcod
 drop s7p50a1 s7p50a2 
-reshape wide s7dcod s7p47 s7p48 s7p49, i(i00) j(num)
-
-local numeros s7p481 s7p482 s7p483 s7p484 s7p485 s7p486 s7p487 s7p488 s7p489        ///
-    s7p4810 s7p4811 s7p4812 s7p4813 s7p4814 s7p4815 s7p4816 s7p4817 s7p4818 s7p4819 ///
-	s7p4820 s7p4821 s7p4822 s7p4823 s7p4824 s7p4825 s7p4826 s7p4827 s7p4828 s7p4829 ///
-	s7p4830 s7p4831 s7p4832 s7p4833 
-foreach numero of local numeros {
-    replace `numero' = 0 if `numero' == .
-} 	
+reshape wide s7dcod s7p47 s7p48 s7p49, i(i00) j(num)	
 	
 *Indicador de activos del hogar	
 egen    assets = rsum (s7p481 s7p482 s7p483 s7p484 s7p485 s7p486 s7p487 s7p488 ///
@@ -112,3 +104,4 @@ keep i00 assets ind_riqrur h_riq
 save "${pjdatabase}/indice-de-riqueza.dta", replace
 exit
 * End of do-file
+
