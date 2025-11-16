@@ -78,6 +78,7 @@ joinby i00 using "${pjdatabase}/equipos-del-hogar.dta", unmatched (master) _merg
 global riqueza assets h_servis1p28a h_servis1p28b h_servis1p28c h_servis1p28d  ///
     h_servis1p28e h_servis1p28f h_serv_hig_1 h_serv_hig_2 h_serv_hig_3 h_piso_1 ///
 	h_piso_2 h_piso_3 h_electricidad h_cuart_dorm_1 h_cuart_dorm_2 h_cuart_dorm_3
+
 factor $riqueza [aw = peso2], pcf
 predict ind_riq
 
@@ -104,4 +105,5 @@ keep i00 assets ind_riqrur h_riq
 save "${pjdatabase}/indice-de-riqueza.dta", replace
 exit
 * End of do-file
+
 
