@@ -80,6 +80,7 @@ replace s4p30 = s4p30 / 12
 egen    educ_exppers = rsum (s4p21b s4p22b s4p23b s4p24b s4p24c s4p25b s4p25c ///
     s4p26b s4p26c s4p26d s4p28 s4p30)
 lab var educ_exppers "Gastos en educacion para personas mayores a 6 anos"
+
 bys i00: egen hheduc_exppers = sum(educ_exppers)
 lab var       hheduc_exppers "Gastos en educacion por hogar para personas mayores a 6 anos"
 
@@ -98,4 +99,5 @@ save "${pjdatabase}/gastos-educacion.dta", replace
 
 exit
 *End of do-file
+
 
