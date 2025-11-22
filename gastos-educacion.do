@@ -27,7 +27,6 @@ use "${pjdatabase}/emnv14_04_poblacion.dta", clear
 */
 
 drop if (s4p6c < 3) //Eliminar pagos menores de tres meses
-drop if ((s4p5 == 1) & (s4p7c < 3)) //Elimimar solo si es a pie
 
 *Cleaning relevant variables
 local pagos s4p6a s4p6b s4p6c s4p7a s4p7b s4p7c s4p8a s4p8b s4p8c
@@ -99,3 +98,4 @@ save "${pjdatabase}/gastos-educacion.dta", replace
 
 exit
 *End of do-file
+
