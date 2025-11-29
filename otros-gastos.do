@@ -92,8 +92,8 @@ save "${pjdatabase}/otros-gastos.dta", replace
     Gastos generales
 */
 use "${pjdatabase}/emnv14_10_parte_b2_de_la_seccion_7.dta", clear
-
 reshape wide s7p20 s7p19 , i(i00) j(s7b2cod)
+
 egen gastos_generales = rsum (s7p201 s7p202 s7p203 s7p204 s7p205 s7p206 s7p207 ///
     s7p208 s7p209 s7p2010 s7p2011 s7p2012 s7p2013 s7p2014 s7p2015 s7p2016 s7p2017 ///
 	s7p2018 s7p2019 s7p2020 s7p2021 s7p2022 s7p2023 s7p2024)
@@ -107,8 +107,10 @@ use "${pjdatabase}/emnv14_08_parte_a_de_la_seccion_7.dta", clear
 
 *Gastos en alimentos
 replace s7p6 = . if (s7p6 == 99999.99)
-recode  s7p6 (1 = 30.41) (2 = 4.33) (3 = 2.16) (4 = 1) (5 = 0.333) (6 = 0.166) ///
-    (7 = 0.083), gen (gasto_producto)
+recode  s7p4 (1 = 30.41) (2 = 4.33) (3 = 2.16) (4 = 1) (5 = 0.333) (6 = 0.166) ///
+    (7 = 0.083)
+gen gasto_producto = s7p4 * s7p6
+
 lab var gasto_producto "Gasto mensual por producto individual"
 
 *Autoconsumo
@@ -135,4 +137,5 @@ save "${pjdatabase}/gastos-alimentos.dta", replace
 
 exit
 *End of do-file	
+
 
