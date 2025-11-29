@@ -66,7 +66,7 @@ replace otros_servicios = . if ((s1p30a == .) & (s1p30b == .) & (s1p30c == .) //
     & (s1p30d == .) & (s1p30e == .) & (s1p30f == .))
 lab var otros_servicios "Gasto mensual por otros servicios"
 
-*Totak gastos por servicios en el hogar
+*Total gastos por servicios en el hogar
 egen    gastos_servicios = rsum (alquiler amort agua basura energia alumb_otros cocina_comb otros_servicios)
 lab var gastos_servicios "Gastos mensuales por servicios en el hogar"
 
@@ -135,3 +135,4 @@ save "${pjdatabase}/gastos-alimentos.dta", replace
 
 exit
 *End of do-file	
+
