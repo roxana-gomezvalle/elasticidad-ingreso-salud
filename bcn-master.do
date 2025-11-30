@@ -53,6 +53,9 @@ lab var central "Centro"
 gen     caribe = (dominio == 4)
 lab var caribe "Caribe"
 
+gen     managua_rural = managua * rural 
+lab var managua_rural "Zona rural Managua"
+
 gen     pacifico_rural = pacifico * rural
 lab var pacifico_rural "Zona rural Pacífico"
 
@@ -61,9 +64,6 @@ lab var central_rural "Zona rural Central"
 
 gen     caribe_rural = caribe * rural
 lab var caribe_rural "Zona rural Caribe"
- 
-gen     managua_rural = managua * rural 
-lab var managua_rural "Zona rural Managua"
 
 *Nivel educativo del jefe de hogar
 recode s4p12a (0 1 2 3 12 = 0) (4 7 = 6)(5 6 = 9) (8 9 = 11) (10 = 16) (11 = 18) ///
@@ -424,3 +424,4 @@ save "${pjdatabase}/master-database.dta", replace
 
 exit
 * End of do-file
+
