@@ -154,7 +154,7 @@ replace inc_freq = 1 / 6 if (s5p26b == 7)
 replace inc_freq = 1 / 12 if (s5p26b == 8)
 lab var inc_freq "Frecuencia del ingreso"
 
-replace s5p26a = . if ((s5p26a == 98) | (s5p26a == 99))
+replace s5p26a = . if ((s5p26a == 9999998) | (s5p26a == 9999999))
 gen     ing_cp = s5p26a * inc_freq
 lab var ing_cp "Ingreso cuenta propia primer trabajo"
 
@@ -424,4 +424,5 @@ save "${pjdatabase}/master-database.dta", replace
 
 exit
 * End of do-file
+
 
