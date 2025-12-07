@@ -238,7 +238,7 @@ lab var ln_ingreso "Logaritmo ingreso del hogar"
 /*
     Tasa de dependencia
 */
-gen recibe_inge = ((ing_mt > 0) & missing(ing_mt))
+gen recibe_inge = ((ing_mt > 0) & !missing(ing_mt))
 egen si_recing = sum(recibe_inge == 1), by(i00)
 egen no_recing = sum(recibe_inge == 0), by(i00)
  
@@ -424,5 +424,6 @@ save "${pjdatabase}/master-database.dta", replace
 
 exit
 * End of do-file
+
 
 
